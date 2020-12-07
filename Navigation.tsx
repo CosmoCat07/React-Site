@@ -39,7 +39,7 @@ export default class Navbar extends Component<NavbarProps, NavbarState> {
   }
 
   render() {
-    return <section className={this.props.theme}>{this.buttons}</section>;
+    return <section className={this.props.theme}>{this.buttons} style={{width: window.innerWidth}}</section>;
   }
 }
 
