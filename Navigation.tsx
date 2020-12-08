@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./style.css";
-import "./Navigation.tsx.css";
+import styles from "./Navigation.module.css";
 
 export class Button {
   text: string;
@@ -25,9 +25,12 @@ interface NavbarProps {
   theme: theme;
   content: Array<Button>;
 }
-interface NavbarState {}
+interface NavbarState {
+  themeClass: themeClass;
+}
 
 type theme = "light" | "dark";
+type themeClass = "section-light" | "section-dark";
 
 export default class Navbar extends Component<NavbarProps, NavbarState> {
   size: number;
@@ -36,10 +39,20 @@ export default class Navbar extends Component<NavbarProps, NavbarState> {
     super(props);
 
     this.buttons = Button.joinIntoLIElements(this.props.content);
+
+    if (this.props.theme == "light") {
+      this.setState({ themeClass: "section-light" });
+    } else {
+      this.setState({ themeClass: "section-dark" });
+    }
   }
 
   render() {
-    return <section className={this.props.theme}>{this.buttons} style={{width: window.innerWidth}}</section>;
+    return (
+      <section className={styles.section} style={{ width: window.innerWidth }}>
+        {this.buttons}
+      </section>
+    );
   }
 }
 

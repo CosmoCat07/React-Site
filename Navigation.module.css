@@ -1,4 +1,4 @@
-section {
+.section {
   margin: 0;
   padding: 0;
   overflow: hidden;
@@ -6,17 +6,17 @@ section {
   display: inline-block;
 }
 
-section.dark {
+.section-dark {
   background: black;
   color: white;
 }
 
-section.light {
+.section-light {
   background: white;
   color: dark;
 }
 
-section div {
+.section-child {
   border-right: 1px solid;
   width: 110px;
   height: 40px;
@@ -26,6 +26,10 @@ section div {
   text-align: center;
 }
 
-section div:last-child {
+.section-child:last-child {
   border-right: none;
+}
+
+* {
+  margin: 0;
 }
